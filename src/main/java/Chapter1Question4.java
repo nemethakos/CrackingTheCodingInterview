@@ -22,8 +22,6 @@ public class Chapter1Question4 {
 	 *
 	 * @param text the text to be checked
 	 * @return true, if the text could be rearranged to be a palindrome
-	 * @param text
-	 * @return
 	 */
 	public static boolean isPalindromePermutationASCII(String text) {
 		Objects.requireNonNull(text);
