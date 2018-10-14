@@ -19,23 +19,7 @@ class Chapter1Question8Test {
 				{ 0, 0, 0 } //
 		};
 
-		assertTrue(equalMatrix(Chapter1Question8.zeroMatrix(matrix), result));
-	}
-
-	private boolean equalMatrix(int[][] matrix1, int[][] matrix2) {
-
-		int rowNum = matrix1.length;
-		int colNum = matrix1[0].length;
-
-		for (int row = 0; row < rowNum; row++) {
-			for (int col = 0; col < colNum; col++) {
-				if (matrix1[row][col] != matrix2[row][col]) {
-					return false;
-				}
-			}
-		}
-
-		return true;
+		assertTrue(Utils.equalMatrix(Chapter1Question8.zeroMatrix(matrix), result));
 	}
 
 }
