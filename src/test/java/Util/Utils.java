@@ -1,6 +1,30 @@
 package Util;
 
+import java.util.Objects;
+
+import data.Node;
+
 public class Utils {
+
+	/**
+	 * Returns true, if the two linked list, given by their head nodes, has the same
+	 * values and the same length.
+	 * 
+	 * @param first  head node of the first linked list
+	 * @param second head node of the second linked list
+	 * @return true, if the two list are equals, false otherwise.
+	 */
+	public static boolean equalLinkedList(Node first, Node second) {
+		while (first != null && second != null) {
+			if (!first.equals(second)) {
+				return false;
+			}
+			first = first.getNext();
+			second = second.getNext();
+		}
+
+		return Objects.equals(first, second);
+	}
 
 	/**
 	 * Returns true, if the two matrix equals. Does not check dimensions.
