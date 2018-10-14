@@ -1,6 +1,10 @@
+package Chapter1_Arrays_And_Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import Chapter1_Arrays_And_Strings.Chapter1Question8;
+import Util.Utils;
 
 class Chapter1Question8Test {
 

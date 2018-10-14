@@ -1,6 +1,9 @@
+package Chapter1_Arrays_And_Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import Chapter1_Arrays_And_Strings.Chapter1Question3;
 
 class Chapter1Question3Test {
 

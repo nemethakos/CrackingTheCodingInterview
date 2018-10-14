@@ -1,8 +1,11 @@
+package Chapter1_Arrays_And_Strings;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import Chapter1_Arrays_And_Strings.Chapter1Question2;
 
 class Chapter1Question2Test {
 

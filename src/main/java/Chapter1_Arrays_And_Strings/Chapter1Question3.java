@@ -1,3 +1,4 @@
+package Chapter1_Arrays_And_Strings;
 
 public class Chapter1Question3 {
 
@@ -44,7 +45,7 @@ public class Chapter1Question3 {
 		}
 	}
 
-	protected static int countSpaces(char[] str, int length) {
+	public static int countSpaces(char[] str, int length) {
 		var result = 0;
 
 		for (var i = 0; i < length; i++) {
@@ -101,7 +102,7 @@ public class Chapter1Question3 {
 	 * @param to     the to index
 	 * @param length the number of characters to copy
 	 */
-	protected static void move(char[] str, int from, int to, int length) {
+	public static void move(char[] str, int from, int to, int length) {
 		int destinationIndex = to + length - 1;
 		int sourceIndex = from + length - 1;
 		int count = length;
