@@ -4,6 +4,17 @@ import data.Node;
 
 public class Chapter2Question2 {
 
+	/**
+	 * <p>
+	 * Return Kth to Last: Implement an algorithm to find the kth to last element of
+	 * a singly linked list.
+	 * <p>
+	 * Note: if k==0, the last element is returned!
+	 * 
+	 * @param head
+	 * @param k
+	 * @return
+	 */
 	public static Node getKthToLast(Node head, int k) {
 
 		Node lead = head;
