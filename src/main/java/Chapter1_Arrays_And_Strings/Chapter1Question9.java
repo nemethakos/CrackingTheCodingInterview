@@ -13,7 +13,7 @@ public class Chapter1Question9 {
 	 * @return true, if s2 is a rotation of s1
 	 */
 	public static boolean isSubstringWithRotatedString(String s1, String s2) {
-		return isSubstring("" + s2 + s2, s1); 
+		return isSubstring("" + s2 + s2, s1);
 	}
 
 	protected static boolean isSubstring(String string, String substring) {

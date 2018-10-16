@@ -6,6 +6,19 @@ import data.Node;
 
 public class Utils {
 
+	public static Node tail(Node head) {
+		
+		if (head==null) {
+			return null;
+		}
+		
+		while (head.getNext()!=null) {
+			head = head.getNext();
+		}
+		
+		return head;
+	}
+	
 	/**
 	 * Returns true, if the two linked list, given by their head nodes, has the same
 	 * values and the same length.

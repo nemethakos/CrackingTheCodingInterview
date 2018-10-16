@@ -2,8 +2,6 @@ package Chapter1_Arrays_And_Strings;
 import java.util.HashMap;
 import java.util.Objects;
 
-import com.google.common.base.Strings;
-
 public class Chapter1Question2 {
 
 	/**
