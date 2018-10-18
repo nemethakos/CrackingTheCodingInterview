@@ -6,6 +6,6 @@ package Chapter3_Stacks_and_Queues;
  * should all operate in 0(1) time.
  *
  */
-public class Chapter4Question2 {
+public class Chapter3Question2 {
 // See minStack class
 }
