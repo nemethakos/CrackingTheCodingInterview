@@ -3,6 +3,11 @@ package Chapter3_Stacks_and_Queues;
 import java.util.Stack;
 
 @SuppressWarnings("serial")
+/**
+ * <b>Stack Min:</b> How would you design a stack which, in addition to push and
+ * pop, has a function min which returns the minimum element? Push, pop and min
+ * should all operate in 0(1) time.
+ */
 public class MinStack<T extends Comparable<T>> extends Stack<T> {
 	
 	Stack<T> minStack = new Stack<>();

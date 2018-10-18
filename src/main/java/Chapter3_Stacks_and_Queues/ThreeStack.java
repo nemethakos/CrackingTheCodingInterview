@@ -2,6 +2,10 @@ package Chapter3_Stacks_and_Queues;
 
 import java.util.Objects;
 
+/**
+ * <b>Three in One:</b> Describe how you could use a single array to implement
+ * three stacks.
+ */
 class ThreeStack<T> {
 	private T[] array;
 	private int[] stackPointers = new int[3];
