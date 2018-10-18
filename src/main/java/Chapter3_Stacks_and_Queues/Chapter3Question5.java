@@ -31,6 +31,7 @@ public class Chapter3Question5 {
 			}
 			// place next on sorted
 			sorted.push(next);
+			
 			System.out.println("Sorted: " + sorted);
 			System.out.println("Unsorted: " + unsorted);
 			System.out.println("-----");
