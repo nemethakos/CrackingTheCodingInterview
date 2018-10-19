@@ -2,7 +2,7 @@ package Chapter2_Linked_Lists;
 
 import java.util.Stack;
 
-import data.Node;
+import data.linkedlist.Node;
 
 public class Chapter2Question6 {
 

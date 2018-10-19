@@ -1,4 +1,4 @@
-package data;
+package data.linkedlist;
 
 /**
  * Singly linked list node type. Every node contains a link to the next

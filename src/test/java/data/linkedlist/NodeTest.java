@@ -1,8 +1,10 @@
-package data;
+package data.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertTrue;
+
+import data.linkedlist.Node;
 
 class NodeTest {
 

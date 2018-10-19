@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertTrue;
 
-import Util.Utils;
-import data.Node;
+import data.linkedlist.Node;
+import util.Utils;
 
 class Chapter2Question8Test {
 

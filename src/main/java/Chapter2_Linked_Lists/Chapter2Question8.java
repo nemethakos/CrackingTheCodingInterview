@@ -1,6 +1,6 @@
 package Chapter2_Linked_Lists;
 
-import data.Node;
+import data.linkedlist.Node;
 
 public class Chapter2Question8 {
 

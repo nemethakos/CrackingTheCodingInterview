@@ -2,9 +2,9 @@ package Chapter2_Linked_Lists;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import data.Node;
+import data.linkedlist.Node;
 
 class Chapter2Question2Test {
 

@@ -3,7 +3,7 @@ package Chapter2_Linked_Lists;
 import java.util.HashSet;
 import java.util.Set;
 
-import data.Node;
+import data.linkedlist.Node;
 
 public class Chapter2Question1 {
 

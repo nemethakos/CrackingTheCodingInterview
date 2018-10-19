@@ -1,8 +1,8 @@
-package Util;
+package util;
 
 import java.util.Objects;
 
-import data.Node;
+import data.linkedlist.Node;
 
 public class Utils {
 

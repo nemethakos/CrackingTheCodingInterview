@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import data.Node;
+import data.linkedlist.Node;
 
 class Chapter2Question7Test {
 

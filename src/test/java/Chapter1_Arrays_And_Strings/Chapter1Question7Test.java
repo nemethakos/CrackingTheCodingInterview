@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import Chapter1_Arrays_And_Strings.Chapter1Question7;
-import Util.Utils;
+import util.Utils;
 
 class Chapter1Question7Test {
 
