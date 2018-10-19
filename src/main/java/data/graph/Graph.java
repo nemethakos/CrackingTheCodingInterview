@@ -68,8 +68,7 @@ public class Graph<T> {
 	}
 
 	/**
-	 * Finds (multiple) {@link GraphNode}s by the value {@code root}. If none found,
-	 * creates one {@link GraphNode} using the value {@code root}.
+	 * Finds (multiple) {@link GraphNode}s by the value {@code root}. 
 	 * 
 	 * @param value the value to find.
 	 * @return the List of {@link GraphNode}s having the value
