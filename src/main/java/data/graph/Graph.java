@@ -2,6 +2,8 @@ package data.graph;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,6 +18,28 @@ public class Graph<T> {
 
 	// all nodes
 	private List<GraphNode<T>> allNodeList = new ArrayList<>();
+	
+	public void breadthFirstVisit(GraphNode<T> startNode, NodeVisitorFunction<T> nodeVisitor) {
+		var visitedNodes = new HashSet<GraphNode<T>>();
+		var queue = new LinkedList<GraphNode<T>>();
+		if (startNode == null) {
+			queue.addAll(rootNodeList);
+		} else {
+			queue.add(startNode);
+		}
+
+		boolean continueVisit = true;
+
+		while (continueVisit && !queue.isEmpty()) {
+			var node = queue.poll();
+			visitedNodes.add(node);
+			continueVisit = nodeVisitor.visit(node);
+			var newNodes = new ArrayList<GraphNode<T>>();
+			newNodes.addAll(node.getNeighboursList());
+			newNodes.removeAll(visitedNodes);
+			queue.addAll(newNodes);
+		}
+	}
 
 	public List<GraphNode<T>> getRootNodeList() {
 		return Collections.unmodifiableList(rootNodeList);
@@ -136,6 +160,16 @@ public class Graph<T> {
 	public Graph<T> add(T root, T... neighbours) {
 
 		attachNodes(this, false, root, neighbours);
+
+		return this;
+	}
+	
+	public Graph<T> addChild(GraphNode<T> parent, GraphNode<T> child) {
+
+		int index = this.getAllNodeList().indexOf(parent);
+		if (index != -1) {
+			this.getAllNodeList().get(index).addNode(child);
+		}
 
 		return this;
 	}

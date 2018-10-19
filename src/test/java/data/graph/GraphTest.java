@@ -24,12 +24,23 @@ class GraphTest {
 
 	@Test
 	void testBuild() {
+
+
 		var graph = Graph.build(//
 				"A", "B", "E")//
 				.add("B", "C")//
+
 				.add("C", "D")//
 				.add("D", "A");
-		System.out.println(graph);
+		
+		var root = graph.getRootNodeList().get(0);
+		var x = new GraphNode<String>("X");
+		graph.addChild(root, x);
+		
+		graph.breadthFirstVisit(null, node -> {
+			System.out.println(node);
+			return true;
+		});
 	}
 
 	@Test
