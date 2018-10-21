@@ -33,6 +33,15 @@ public class MinimalTree {
 
 	}
 
+	/**
+	 * <p>
+	 * <b>Minimal Tree:</b> Given a sorted (increasing order) array with unique
+	 * integer elements, write an algorithm to create a binary search tree with
+	 * minimal height.
+	 * 
+	 * @param sortedArray the array for the binary tree
+	 * @return the {@link BinaryTree} made from the array
+	 */
 	public static BinaryTree getBSTFromSortedArray(int[] sortedArray) {
 		var head = getBinaryTreeFrom(sortedArray, 0, sortedArray.length - 1);
 		return BinaryTree.from(head);
