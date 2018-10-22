@@ -33,7 +33,7 @@ public class ListOfDepths {
 			map.get(level).add(node.getValue());
 
 			return true;
-		}, TraversalType.DEPTH_FIRST_SEARCH_PREORDER);
+		}, TraversalType.DEPTH_FIRST_SEARCH_INORDER);
 
 		return new ArrayList<LinkedList<Integer>>(map.values());
 	}

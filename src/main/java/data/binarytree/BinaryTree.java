@@ -30,7 +30,7 @@ public class BinaryTree {
 	}
 
 	public void visitNodes(BinaryTreeNodeVisitor visitor, TraversalType traversalType) {
-		if (traversalType.equals(TraversalType.DEPTH_FIRST_SEARCH_PREORDER)) {
+		if (traversalType.equals(TraversalType.DEPTH_FIRST_SEARCH_INORDER)) {
 			inorderTraversal(head, visitor, 0);
 		}
 		else {
