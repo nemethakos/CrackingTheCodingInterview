@@ -18,7 +18,7 @@ public class Graph<T> {
 
 	// all nodes
 	private List<GraphNode<T>> allNodeList = new ArrayList<>();
-	
+
 	public void breadthFirstVisit(GraphNode<T> startNode, NodeVisitorFunction<T> nodeVisitor) {
 		var visitedNodes = new HashSet<GraphNode<T>>();
 		var queue = new LinkedList<GraphNode<T>>();
@@ -68,7 +68,7 @@ public class Graph<T> {
 	}
 
 	/**
-	 * Finds (multiple) {@link GraphNode}s by the value {@code root}. 
+	 * Finds (multiple) {@link GraphNode}s by the value {@code root}.
 	 * 
 	 * @param value the value to find.
 	 * @return the List of {@link GraphNode}s having the value
@@ -83,6 +83,40 @@ public class Graph<T> {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Finds or creates the {@link GraphNode} with the given {@code value}. If the
+	 * node is not found, it will be created and the
+	 * {@link #addToAllNodeList(GraphNode)} is used to add the node to the list of
+	 * all nodes. The root node list will not be modified.
+	 * 
+	 * @param value the value to create the {@link GraphNode} with.
+	 * @return the {@link GraphNode} containing the value.
+	 */
+	public GraphNode<T> findOrCreate(T value) {
+		var node = findByValue(value);
+		if (node == null) {
+			node = new GraphNode<T>(value);
+			addToAllNodeList(node);
+		}
+		return node;
+	}
+
+	/**
+	 * Find node by value. The nodes in the graph should be unique!
+	 * 
+	 * @param value the value
+	 * @return the {@link GraphNode}
+	 */
+	public GraphNode<T> findByValue(T value) {
+		for (var node : allNodeList) {
+			if (node.getValue().equals(value)) {
+				return node;
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -149,7 +183,7 @@ public class Graph<T> {
 	}
 
 	/**
-	 * Adds neighbours to the nood denoted by the value root
+	 * Adds neighbours to the node denoted by the value root
 	 * 
 	 * @param neighbours the value of the neighbours
 	 * @return the modified {@link Graph}
@@ -162,7 +196,24 @@ public class Graph<T> {
 
 		return this;
 	}
-	
+
+	/**
+	 * Removes the {@link GraphNode} from the {@link Graph}. Also removes from the
+	 * {@link GraphNode}'s neighbours lists.
+	 * 
+	 * @param node the {@link GraphNode} to remove
+	 * @return true, if the {@link GraphNode} was found in the {@link Graph}
+	 */
+	public boolean remove(GraphNode<T> node) {
+
+		boolean found = this.allNodeList.remove(node);
+		if (found) {
+			this.rootNodeList.remove(node);
+			this.allNodeList.stream().forEach(graphNode -> graphNode.removeNeighbour(node));
+		}
+		return found;
+	}
+
 	public Graph<T> addChild(GraphNode<T> parent, GraphNode<T> child) {
 
 		int index = this.getAllNodeList().indexOf(parent);

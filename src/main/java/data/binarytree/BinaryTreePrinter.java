@@ -28,6 +28,14 @@ class BinaryTreePrinter {
         for (BinaryTreeNode node : nodes) {
             if (node != null) {
             	sb.append(node.getValue());
+            	/* Print parent's value
+            	if (node.getParent()!=null) {
+            		sb.append("("+node.getParent().getValue()+")");
+            	}
+            	else {
+            		sb.append("*");
+            	}
+            	*/
                 newNodes.add(node.getLeft());
                 newNodes.add(node.getRight());
             } else {

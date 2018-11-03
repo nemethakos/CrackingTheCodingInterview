@@ -7,13 +7,27 @@ import javax.annotation.Generated;
  */
 public class BinaryTreeNode {
 
-	public boolean isLeaf() {
-		return left == null & right == null;
+	private BinaryTreeNode parent;
+	
+	public BinaryTreeNode getParent() {
+		return parent;
+	}
+	public void setParent(BinaryTreeNode parent) {
+		this.parent = parent;
 	}
 
-	public BinaryTreeNode(int value) {
-		super();
-		this.value = value;
+	private BinaryTreeNode left;
+
+	private BinaryTreeNode right;
+
+	private int value;
+
+	@Generated("SparkTools")
+	private BinaryTreeNode(Builder builder) {
+		this.parent = builder.parent;
+		this.left = builder.left;
+		this.right = builder.right;
+		this.value = builder.value;
 	}
 
 	public BinaryTreeNode(BinaryTreeNode left, BinaryTreeNode right, int value) {
@@ -23,57 +37,9 @@ public class BinaryTreeNode {
 		this.value = value;
 	}
 
-	private BinaryTreeNode left;
-	private BinaryTreeNode right;
-	private int value;
-
-	/**
-	 * Builder to build {@link BinaryTreeNode}.
-	 */
-	@Generated("SparkTools")
-	public static final class Builder {
-		private BinaryTreeNode left;
-		private BinaryTreeNode right;
-		private int value;
-
-		private Builder() {
-		}
-
-		public BinaryTreeNode build() {
-			return new BinaryTreeNode(this);
-		}
-
-		public Builder withLeft(BinaryTreeNode left) {
-			this.left = left;
-			return this;
-		}
-
-		public Builder withRight(BinaryTreeNode right) {
-			this.right = right;
-			return this;
-		}
-
-		public Builder withValue(int value) {
-			this.value = value;
-			return this;
-		}
-	}
-
-	/**
-	 * Creates builder to build {@link BinaryTreeNode}.
-	 * 
-	 * @return created builder
-	 */
-	@Generated("SparkTools")
-	public static Builder builder() {
-		return new Builder();
-	}
-
-	@Generated("SparkTools")
-	private BinaryTreeNode(Builder builder) {
-		this.left = builder.left;
-		this.right = builder.right;
-		this.value = builder.value;
+	public BinaryTreeNode(int value) {
+		super();
+		this.value = value;
 	}
 
 	public BinaryTreeNode getLeft() {
@@ -86,6 +52,10 @@ public class BinaryTreeNode {
 
 	public int getValue() {
 		return value;
+	}
+
+	public boolean isLeaf() {
+		return left == null & right == null;
 	}
 
 	public void setLeft(BinaryTreeNode left) {
@@ -103,6 +73,52 @@ public class BinaryTreeNode {
 	@Override
 	public String toString() {
 		return BinaryTreePrinter.getNodeAsString(this);
+	}
+	/**
+	 * Creates builder to build {@link BinaryTreeNode}.
+	 * @return created builder
+	 */
+	@Generated("SparkTools")
+	public static Builder builder() {
+		return new Builder();
+	}
+
+	/**
+	 * Builder to build {@link BinaryTreeNode}.
+	 */
+	@Generated("SparkTools")
+	public static final class Builder {
+		private BinaryTreeNode parent;
+		private BinaryTreeNode left;
+		private BinaryTreeNode right;
+		private int value;
+
+		private Builder() {
+		}
+
+		public Builder withParent(BinaryTreeNode parent) {
+			this.parent = parent;
+			return this;
+		}
+
+		public Builder withLeft(BinaryTreeNode left) {
+			this.left = left;
+			return this;
+		}
+
+		public Builder withRight(BinaryTreeNode right) {
+			this.right = right;
+			return this;
+		}
+
+		public Builder withValue(int value) {
+			this.value = value;
+			return this;
+		}
+
+		public BinaryTreeNode build() {
+			return new BinaryTreeNode(this);
+		}
 	}
 
 }

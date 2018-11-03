@@ -20,8 +20,23 @@ public class GraphNode<T> {
 		this.value = value;
 	}
 
+	/**
+	 * Adds the new node as neighbour to the node.
+	 * 
+	 * @param newNode the new node.
+	 */
 	public void addNode(GraphNode<T> newNode) {
 		this.neighboursList.add(newNode);
+	}
+
+	/**
+	 * Removes the neighbour
+	 * 
+	 * @param neighbour the {@link GraphNode}
+	 * @return true, if the node was found and removed
+	 */
+	public boolean removeNeighbour(GraphNode<T> neighbour) {
+		return neighboursList.remove(neighbour);
 	}
 
 	/**
@@ -49,7 +64,8 @@ public class GraphNode<T> {
 	}
 
 	private String getNeighbourListString() {
-		return this.getNeighboursList().stream().map(node->node.getValue().toString()).collect(Collectors.joining(","));
+		return this.getNeighboursList().stream().map(node -> node.getValue().toString())
+				.collect(Collectors.joining(","));
 	}
-	
+
 }
