@@ -3,10 +3,46 @@ package data.binarytree;
 import java.util.Arrays;
 
 /**
- * Encapsulates a Binary Search Tree
+ * Encapsulates a Binary Tree
  */
 public class BinaryTree {
-	BinaryTreeNode head;
+	private BinaryTreeNode head;
+
+	/**
+	 * Finds the {@link BinaryTreeNode} containing the provided value in the binary
+	 * tree, if it is a binary search tree
+	 * 
+	 * @param value the value to search for
+	 * @return null if the node is not found, the {@link BinaryTreeNode} containing
+	 *         the value otherwise
+	 */
+	public BinaryTreeNode findOneNodeByValue(int value) {
+		return findNodeByValue(head, value);
+	}
+
+	/**
+	 * Finds the value in the subtree represented by {@code root}
+	 * 
+	 * @param root  the head of subtree to search in
+	 * @param value the value to search for
+	 * @return the {@link BinaryTreeNode} containing the value or null if not found.
+	 */
+	private BinaryTreeNode findNodeByValue(BinaryTreeNode root, int value) {
+		if (root == null) {
+			return null;
+		} else {
+			int rootValue = root.getValue();
+			BinaryTreeNode nextRoot; 
+			if (rootValue == value) {
+				return root;
+			} else if (value < rootValue) {
+				nextRoot = root.getLeft();
+			} else {
+				nextRoot = root.getRight();
+			}
+			return findNodeByValue(nextRoot, value);
+		}
+	}
 
 	/**
 	 * Creates a new {@link BinaryTree} initialized with the head of the given tree.
@@ -118,7 +154,7 @@ public class BinaryTree {
 
 		BinaryTreeNode left = getBinaryTreeFrom(array, lowIndex, medianIndex - 1, parentNode);
 		parentNode.setLeft(left);
-		
+
 		BinaryTreeNode right = getBinaryTreeFrom(array, medianIndex + 1, highIndex, parentNode);
 		parentNode.setRight(right);
 
