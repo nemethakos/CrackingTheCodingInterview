@@ -1,24 +1,68 @@
 package util;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import data.linkedlist.Node;
 
 public class Utils {
 
+	public static int[] getArrayToSort(int length) {
+		int[] result = new int[length];
+		int j = 0;
+		for (var i = length - 1; i >= 0; i--) {
+			result[j++] = i;
+		}
+		return result;
+	}
+
+	public static int[] getArrayToSort(int length, int initialValue, int delta) {
+		int[] result = new int[length];
+
+		for (var i = 0; i < length; i++) {
+			result[i] = initialValue;
+			initialValue += delta;
+		}
+		return result;
+	}
+
+	/**
+	 * Returns true if the array is sorted
+	 * 
+	 * @param array the int array
+	 * @return true if the array is sorted
+	 */
+	public static boolean isSorted(int[] array) {
+		if (array.length < 2) {
+			return true;
+		}
+		for (var i = 0; i <= array.length - 2; i++) {
+			if (array[i] > array[i + 1]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Returns the tail of the linked list
+	 * 
+	 * @param head the head of the linked list
+	 * @return the tail of the linked list
+	 */
 	public static Node tail(Node head) {
-		
-		if (head==null) {
+
+		if (head == null) {
 			return null;
 		}
-		
-		while (head.getNext()!=null) {
+
+		while (head.getNext() != null) {
 			head = head.getNext();
 		}
-		
+
 		return head;
 	}
-	
+
 	/**
 	 * Returns true, if the two linked list, given by their head nodes, has the same
 	 * values and the same length.
@@ -61,6 +105,10 @@ public class Utils {
 		}
 
 		return true;
+	}
+
+	public static String arrayToString(String label, int[] arr) {
+		return label + ": " + Arrays.deepToString(Arrays.asList(arr).toArray());
 	}
 
 }
