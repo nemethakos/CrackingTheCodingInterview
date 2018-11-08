@@ -2,7 +2,7 @@ package data.util;
 
 public class Utils {
 	/**
-	 * Swaps index1-th and index2-th elements in the array
+	 * Swaps index1th and index2th elements in the array
 	 * 
 	 * @param array  the int array
 	 * @param index1 the first index
