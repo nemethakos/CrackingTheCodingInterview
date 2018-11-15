@@ -41,7 +41,7 @@ class RobotInAGridTest {
 			}
 		}
 		{
-			var visited = pathResult.visited;
+			var visited = pathResult.failed;
 			if (visited != null) {
 				for (var pos : visited) {
 					buf[pos.getRow()][pos.getCol()] = '?';

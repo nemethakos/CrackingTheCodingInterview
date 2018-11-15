@@ -30,10 +30,10 @@ public class RobotInAGrid {
 		}
 
 		List<Pos> path = new ArrayList<>();
-		Set<Pos> visited = new HashSet<>();
+		Set<Pos> failed = new HashSet<>();
 
-		if (getPath(grid, 0, 0, path, visited)) {
-			return new PathResult(path, new ArrayList<Pos>(visited));
+		if (getPath(grid, 0, 0, path, failed)) {
+			return new PathResult(path, new ArrayList<Pos>(failed));
 		}
 
 		return null;
@@ -49,16 +49,16 @@ public class RobotInAGrid {
 	 * @param row     row of the start coordinate
 	 * @param col     column of the start coordinate
 	 * @param path    the positions of the so far visited cells.
-	 * @param visited the cells which are "dead ends"
+	 * @param failed the cells which are "dead ends"
 	 * @return true, if the destination is found, or the path exists from the
 	 *         (row,col) position to the destination.
 	 */
-	private static boolean getPath(boolean[][] grid, int row, int col, List<Pos> path, Set<Pos> visited) {
+	private static boolean getPath(boolean[][] grid, int row, int col, List<Pos> path, Set<Pos> failed) {
 		Pos pos = new Pos(row, col);
 
 		// check if the (row,col) is invalid
 		if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || !grid[row][col]
-				|| visited.contains(pos)) {
+				|| failed.contains(pos)) {
 			System.out.println(pos + " -> invalid");
 			return false;
 		} else {
@@ -68,15 +68,15 @@ public class RobotInAGrid {
 		// true if the position is the final destination
 		boolean arrived = row == grid.length - 1 && col == grid[0].length - 1;
 
-		// after a successful step, the position is added to the path
-		if (arrived || getPath(grid, row + 1, col, path, visited) || getPath(grid, row, col + 1, path, visited)) {
+		// if the (row,col) is on the path to destination or the destination itself, it is added to the "path" 
+		if (arrived || getPath(grid, row + 1, col, path, failed) || getPath(grid, row, col + 1, path, failed)) {
 			path.add(pos);
 			System.out.println(path);
 			return true;
 		}
 
-		// unsuccessful steps are added to the visited list
-		visited.add(pos);
+		// if the position is "dead end" it is added to "failed"
+		failed.add(pos);
 
 		return false;
 	}
@@ -87,17 +87,17 @@ public class RobotInAGrid {
 	 */
 	public static class PathResult {
 		List<Pos> path;
-		List<Pos> visited;
+		List<Pos> failed;
 
 		public PathResult(List<Pos> path, List<Pos> visited) {
 			super();
 			this.path = path;
-			this.visited = visited;
+			this.failed = visited;
 		}
 
 		@Override
 		public String toString() {
-			return String.format("PathResult [path=%s, visited=%s]", path, visited);
+			return String.format("PathResult [path=%s, failed=%s]", path, failed);
 		}
 	}
 
