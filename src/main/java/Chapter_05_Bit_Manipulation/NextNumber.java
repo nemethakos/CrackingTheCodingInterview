@@ -32,7 +32,7 @@ public class NextNumber {
 			return -1;
 		}
 
-		return number + (1 << countOnes) - (1 << (countZeros - 1)) + 1;
+		return number + (1 << countZeros) + (1 << (countOnes - 1)) - 1;
 
 	}
 
@@ -45,6 +45,11 @@ public class NextNumber {
 		while ((temporaryCounter & 1) == 1) {
 			countOnes++;
 			temporaryCounter >>= 1;
+		}
+		
+
+		if (temporaryCounter == 0) {
+			return -1;
 		}
 
 		// count zeros left of trailing ones
@@ -105,6 +110,10 @@ public class NextNumber {
 			temporaryCounter >>= 1;
 		}
 
+		if (temporaryCounter == 0) {
+			return -1;
+		}
+
 		// count zeros left of trailing ones
 		while (((temporaryCounter & 1) == 0) && (temporaryCounter != 0)) {
 			countZeros++;
@@ -113,10 +122,11 @@ public class NextNumber {
 
 		int flipPosition = countZeros + countOnes;
 
-		// flip the 0->1
+		// flip the 1->0
 		number &= ((~0) << (flipPosition + 1));
 
-		int mask = (1 << (countOnes + countZeros)) - 1;
+		
+		int mask = (1 << (countOnes + 1)) - 1;
 
 		// set ones right to the position, but one less
 		number |= mask << (countZeros - 1);

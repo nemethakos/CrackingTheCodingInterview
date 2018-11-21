@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NextNumberTest {
 
 	public static void print(String label, int input, int output) {
-		System.out.println(label + " " + Integer.toBinaryString(input) + "(" + input + ")\t\t->"
+		System.out.println("\r\n"+label + "\t" + Integer.toBinaryString(input) + "(" + input + ")\r\n\t\t\t\t"
 				+ Integer.toBinaryString(output) + "(" + output + ")");
 	}
 
