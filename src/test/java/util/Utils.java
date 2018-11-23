@@ -108,7 +108,7 @@ public class Utils {
 	}
 
 	public static String arrayToString(String label, int[] arr) {
-		return label + ": " + Arrays.deepToString(Arrays.asList(arr).toArray());
+		return label + ": " + Arrays.toString(arr);
 	}
 
 }

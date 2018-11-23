@@ -31,7 +31,7 @@ public class Chapter2Question6 {
 		}
 
 		// if the length is odd, advance over the middle element
-		if (length % 2 == 1) {
+		if ((length & 1) == 1) {
 			node = node.getNext();
 		}
 		while (node != null) {
